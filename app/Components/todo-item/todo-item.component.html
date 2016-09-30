@@ -1,0 +1,7 @@
+<div class="ui checkbox">
+	<input #valueInput type="checkbox" (change)="toggleDone(valueInput.checked)">
+	<!--НГ класс присвоит класс compiled если cвойство обьекта todo.done вернет труе-->
+	<label [ngClass]="{compiled: todo.done}">{{ todo.title }}</label>
+
+</div>
+<button (click)="deleteThisTodo()" class="ui red icon button"><i class="trash outline icon"></i></button>

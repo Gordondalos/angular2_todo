@@ -9,22 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TodoItemComponent = (function () {
-    function TodoItemComponent() {
+var TodoListComponent = (function () {
+    function TodoListComponent() {
     }
+    TodoListComponent.prototype.onTodoDeleted = function (todo) {
+        if (todo) {
+            var index = this.todos.indexOf(todo); // получаем индекс задачи в массиве
+            if (index > -1) {
+                this.todos.splice(index, 1);
+            }
+        }
+    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', String)
-    ], TodoItemComponent.prototype, "todo", void 0);
-    TodoItemComponent = __decorate([
+        __metadata('design:type', Array)
+    ], TodoListComponent.prototype, "todos", void 0);
+    TodoListComponent = __decorate([
         core_1.Component({
-            selector: 'todo-item',
-            templateUrl: './app/todo/todo-item.component.html',
-            styleUrls: ['./app/todo/todo-item.component.css']
+            selector: 'todo-list',
+            templateUrl: 'app/Components/todo-list/todo-list.component.html',
+            styleUrls: ['app/Components/todo-list/todo-list.component.css'],
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoItemComponent);
-    return TodoItemComponent;
+    ], TodoListComponent);
+    return TodoListComponent;
 }());
-exports.TodoItemComponent = TodoItemComponent;
-//# sourceMappingURL=todo-item.component.js.map
+exports.TodoListComponent = TodoListComponent;
+//# sourceMappingURL=todo-list.component.js.map

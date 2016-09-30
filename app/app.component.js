@@ -9,27 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var todo_model_1 = require('./Components/shared/todo.model');
 // Анотация, она же декоратор
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Ангуляр 2do"; // В конструкторе обьявляются значения свойств
-        this.todos = ['Изучить Джаваскрипт', 'Изучить Ангуляр2', 'Изучить Экмоскрипт6', 'купить продукты'];
+        this.todos = [];
     }
-    AppComponent.prototype.addTodo = function (event) {
-        if (event.type === 'keyup' && event.which === 13) {
-            this.todos.push(event.target.value);
-        }
-    };
-    AppComponent.prototype.test = function (input) {
-        this.todos.push(input.value);
-        input.value = '';
+    AppComponent.prototype.onTodoAdded = function (zagolovok) {
+        this.todos.push(new todo_model_1.Todo(zagolovok));
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'todo-app',
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css'],
-            directives: ['TodoListComponent']
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

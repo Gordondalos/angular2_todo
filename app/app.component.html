@@ -7,12 +7,9 @@
 </nav>
 
 <div class="ui text container">
-	<div class="ui segment form">
-		<div class="ui fluid action input">
-			<input type="text" class="form-control" name="title" placeholder="Что нужно сделать?" (keyup.enter)="addTodo($event);titleInput.value=''"  #titleInput>
-			<button type="button" class="ui primary button" (click)="test(titleInput)" (dblclick)="addTodo($event)">Добавить</button>
-		</div>
-	</div>
+
+
+	<todo-form (added)="onTodoAdded($event)"></todo-form>
 
 	<todo-list [todos]="todos"></todo-list>
 
