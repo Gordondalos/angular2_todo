@@ -12,6 +12,37 @@ var core_1 = require('@angular/core');
 var TodoListComponent = (function () {
     function TodoListComponent() {
     }
+    Object.defineProperty(TodoListComponent.prototype, "sortedTodos", {
+        // сотрировка массива
+        get: function () {
+            return this.todos
+                .map(function (todo) { return todo; }) // этот метод делает копию массива todos
+                .sort(function (a, b) {
+                if (a.title > b.title) {
+                    return 1;
+                }
+                else if (a.title < b.title) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            })
+                .sort(function (a, b) {
+                if (a.done && !b.done) {
+                    return 1;
+                }
+                else if (!a.done && b.done) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            });
+        },
+        enumerable: true,
+        configurable: true
+    });
     TodoListComponent.prototype.onTodoDeleted = function (todo) {
         if (todo) {
             var index = this.todos.indexOf(todo); // получаем индекс задачи в массиве
