@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var todo_list_component_1 = require('./todo/todo-list.component');
-var todo_item_component_1 = require('./todo/todo-item.component');
-var AppModule = (function () {
-    function AppModule() {
+var TodoItemComponent = (function () {
+    function TodoItemComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, todo_list_component_1.TodoListComponent, todo_item_component_1.TodoItemComponent],
-            bootstrap: [app_component_1.AppComponent],
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], TodoItemComponent.prototype, "todo", void 0);
+    TodoItemComponent = __decorate([
+        core_1.Component({
+            selector: 'todo-item',
+            templateUrl: './app/todo/todo-item.component.html',
+            styleUrls: ['./app/todo/todo-item.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], TodoItemComponent);
+    return TodoItemComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.TodoItemComponent = TodoItemComponent;
+//# sourceMappingURL=todo-item.component.js.map
