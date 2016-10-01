@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_model_1 = require('./Components/shared/todo.model');
+var http_1 = require('@angular/http');
+var todo_service_1 = require('./Components/shared/todo.service');
 // Анотация, она же декоратор
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(todoService) {
         this.title = "Ангуляр 2do"; // В конструкторе обьявляются значения свойств
-        this.todos = [];
     }
-    AppComponent.prototype.onTodoAdded = function (zagolovok) {
-        this.todos.push(new todo_model_1.Todo(zagolovok));
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'todo-app',
             templateUrl: 'app/app.component.html',
             styleUrls: ['app/app.component.css'],
+            providers: [http_1.HttpModule, todo_service_1.TodoService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [todo_service_1.TodoService])
     ], AppComponent);
     return AppComponent;
 }());

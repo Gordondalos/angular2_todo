@@ -9,35 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TodoFormFomponent = (function () {
-    function TodoFormFomponent() {
+var todo_model_1 = require('../shared/todo.model');
+var todo_service_1 = require('../shared/todo.service');
+var TodoFormComponent = (function () {
+    function TodoFormComponent(todoService) {
+        this.todoService = todoService;
         this.added = new core_1.EventEmitter();
     }
-    TodoFormFomponent.prototype.add = function (title) {
+    TodoFormComponent.prototype.add = function (title) {
         if (title) {
-            this.added.emit(title);
-        }
-    };
-    TodoFormFomponent.prototype.addTodo = function (event) {
-        if (event) {
-            if (event.type === 'keyup' && event.which === 13) {
-                this.added.emit(event.target.value);
-            }
+            var todo = new todo_model_1.Todo(title);
+            this.todoService.addTodo(todo);
         }
     };
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], TodoFormFomponent.prototype, "added", void 0);
-    TodoFormFomponent = __decorate([
+    ], TodoFormComponent.prototype, "added", void 0);
+    TodoFormComponent = __decorate([
         core_1.Component({
             selector: 'todo-form',
             templateUrl: 'app/Components/todo-form/todo-form.components.html',
-            styleUrls: ['app/Components/todo-form/todo-form.components.css']
+            styleUrls: ['app/Components/todo-form/todo-form.components.css'],
         }), 
-        __metadata('design:paramtypes', [])
-    ], TodoFormFomponent);
-    return TodoFormFomponent;
+        __metadata('design:paramtypes', [todo_service_1.TodoService])
+    ], TodoFormComponent);
+    return TodoFormComponent;
 }());
-exports.TodoFormFomponent = TodoFormFomponent;
+exports.TodoFormComponent = TodoFormComponent;
 //# sourceMappingURL=todo-from-component.js.map

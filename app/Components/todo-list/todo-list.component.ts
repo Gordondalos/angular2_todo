@@ -1,22 +1,35 @@
-import { Component, Input } from '@angular/core';
-import { Todo } from '../shared/todo.model';
+import { Component, OnInit } from '@angular/core';
+
+import { ITodo, Todo } from '../shared/todo.model';
+import { TodoService } from '../shared/todo.service';
 
 
 @Component({
     selector: 'todo-list',
     templateUrl: 'app/Components/todo-list/todo-list.component.html',
     styleUrls: ['app/Components/todo-list/todo-list.component.css'],
+    // providers: [TodoService] // здесь убрали так как он у родителя зареган и он тут доступен
     //inputs: ['todos'] // Это способ №1
 })
 
-export class TodoListComponent {
-     @Input()todos: Todo[];     // Это способ передачи номер 2 из родителя ребенку, при помощи декоратора импут
+export class TodoListComponent implements OnInit{
+     todos: ITodo[];     // Это способ передачи номер 2 из родителя ребенку, при помощи декоратора импут
+
+    constructor(private todoService: TodoService){
+        this.todos = [];
+    }
+
+    ngOnInit(){
+        this.todoService.getTodos().then(todos=>this.todos = todos);
+
+    }
+
 
         // сотрировка массива
-    get sortedTodos(){
+    get sortedTodos(): ITodo[]{
         return this.todos
             .map((todo: Todo)=>todo) // этот метод делает копию массива todos
-            .sort((a: Todo, b: Todo)=>{
+            .sort((a, b)=>{
                  if(a.title > b.title){
                      return 1;
                  }else if(a.title < b.title){
@@ -25,7 +38,7 @@ export class TodoListComponent {
                      return 0;
                  }
             })
-            .sort((a: Todo, b: Todo)=>{
+            .sort((a, b)=>{
             if(a.done && !b.done){
                 return 1;
             }else if (!a.done && b.done){
@@ -36,13 +49,8 @@ export class TodoListComponent {
         })
     }
 
-    onTodoDeleted(todo: Todo){
-        if(todo){
-            let index = this.todos.indexOf(todo); // получаем индекс задачи в массиве
-            if(index>-1){
-                this.todos.splice(index,1);
-            }
-        }
+    onTodoDeleted(todo: ITodo): void{
+        this.todoService.deleteTodo(todo);
 
     }
 }
