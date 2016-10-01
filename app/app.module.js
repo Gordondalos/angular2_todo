@@ -11,16 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
-var todo_list_component_1 = require('app/Components/todo-list/todo-list.component');
-var todo_item_component_1 = require('app/Components/todo-item/todo-item.component');
-var todo_from_component_1 = require("app/Components/todo-form/todo-from-component");
+var todo_list_component_1 = require('./Components/todo-list/todo-list.component');
+var todo_item_component_1 = require('./Components/todo-item/todo-item.component');
+var todo_from_component_1 = require('./Components/todo-form/todo-from-component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, todo_list_component_1.TodoListComponent, todo_item_component_1.TodoItemComponent, todo_from_component_1.TodoFormFomponent],
+            declarations: [app_component_1.AppComponent, todo_list_component_1.TodoListComponent, todo_item_component_1.TodoItemComponent, todo_from_component_1.TodoFormСomponent],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

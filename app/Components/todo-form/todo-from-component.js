@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TodoFormFomponent = (function () {
-    function TodoFormFomponent() {
+var TodoFormСomponent = (function () {
+    function TodoFormСomponent() {
         this.added = new core_1.EventEmitter();
     }
-    TodoFormFomponent.prototype.add = function (title) {
+    TodoFormСomponent.prototype.add = function (title) {
         if (title) {
             this.added.emit(title);
         }
     };
-    TodoFormFomponent.prototype.addTodo = function (event) {
+    TodoFormСomponent.prototype.addTodo = function (event) {
         if (event) {
             if (event.type === 'keyup' && event.which === 13) {
                 this.added.emit(event.target.value);
@@ -28,16 +28,16 @@ var TodoFormFomponent = (function () {
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], TodoFormFomponent.prototype, "added", void 0);
-    TodoFormFomponent = __decorate([
+    ], TodoFormСomponent.prototype, "added", void 0);
+    TodoFormСomponent = __decorate([
         core_1.Component({
             selector: 'todo-form',
             templateUrl: 'app/Components/todo-form/todo-form.components.html',
             styleUrls: ['app/Components/todo-form/todo-form.components.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoFormFomponent);
-    return TodoFormFomponent;
+    ], TodoFormСomponent);
+    return TodoFormСomponent;
 }());
-exports.TodoFormFomponent = TodoFormFomponent;
+exports.TodoFormСomponent = TodoFormСomponent;
 //# sourceMappingURL=todo-from-component.js.map

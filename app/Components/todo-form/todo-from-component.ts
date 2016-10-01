@@ -7,7 +7,7 @@ import { Todo } from '../shared/todo.model';
     styleUrls: ['app/Components/todo-form/todo-form.components.css']
 })
 
-export class TodoFormFomponent{
+export class TodoFormСomponent{
 
     @Output() added = new EventEmitter();
 
