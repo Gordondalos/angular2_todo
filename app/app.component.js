@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var todo_service_1 = require('./Components/shared/todo.service');
+// import  { todos } from './Components/shared/todo.data';
 // Анотация, она же декоратор
 var AppComponent = (function () {
     function AppComponent(todoService) {

@@ -19,7 +19,7 @@ var TodoFormComponent = (function () {
     TodoFormComponent.prototype.add = function (title) {
         if (title) {
             var todo = new todo_model_1.Todo(title);
-            todo_service_1.TodoService.addTodo(todo);
+            this.todoService.addTodo(todo);
         }
     };
     __decorate([

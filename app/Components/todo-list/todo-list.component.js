@@ -51,7 +51,7 @@ var TodoListComponent = (function () {
         configurable: true
     });
     TodoListComponent.prototype.onTodoDeleted = function (todo) {
-        todo_service_1.TodoService.deleteTodo(todo);
+        this.todoService.deleteTodo(todo);
     };
     TodoListComponent = __decorate([
         core_1.Component({
