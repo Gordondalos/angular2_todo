@@ -19,7 +19,7 @@ export class TodoFormComponent{
     add(title: string) :void{
         if(title){
             let todo = new Todo(title);
-            this.todoService.addTodo(todo);
+            TodoService.addTodo(todo);
         }
     }
 

@@ -50,7 +50,7 @@ export class TodoListComponent implements OnInit{
     }
 
     onTodoDeleted(todo: ITodo): void{
-        this.todoService.deleteTodo(todo);
+        TodoService.deleteTodo(todo);
 
     }
 }
